@@ -21,7 +21,7 @@ function AddItemForm({ onItemAdded }) {
     setError(null)
 
     try {
-      const res = await fetch('http://localhost:5000/api/items', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/items`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -11,7 +11,7 @@ function ItemList() {
   const [editingItem, setEditingItem] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/items')
+    fetch(`${import.meta.env.VITE_API_URL}/api/items`)
       .then((res) => res.json())
       .then((data) => {
         setItems(data)
@@ -39,7 +39,7 @@ function ItemList() {
     if (!window.confirm('Delete this item?')) return
 
     try {
-      const res = await fetch(`http://localhost:5000/api/items/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/items/${id}`, {
         method: 'DELETE',
       })
       if (!res.ok) throw new Error('Failed to delete item')

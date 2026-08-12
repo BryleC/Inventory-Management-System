@@ -21,7 +21,7 @@ function EditItemForm({ item, onItemUpdated }) {
     setError(null)
 
     try {
-      const res = await fetch(`http://localhost:5000/api/items/${item.id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/items/${item.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
